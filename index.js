@@ -1,3 +1,11 @@
+process.on('uncaughtException', (err) => {
+    console.error('[AntiCrash] حدث خطأ وتم تخطيه بنجاح:', err);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('[AntiCrash] تم منع انهيار البوت بسبب:', reason);
+});
+
 const { spawn } = require("child_process");
 const log = require("./logger/log.js");
 
