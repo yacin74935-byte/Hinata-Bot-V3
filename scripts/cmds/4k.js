@@ -14,13 +14,13 @@ module.exports = {
                 countDown: 10,
                 role: 0,
                 description: {
-                        en: "Enhance or restore image quality to 4K using AI",
+                        en: "تحسين أو استعادة جودة الصورة إلى 4K باستخدام الذكاء الاصطناعي",
                         vi: "Nâng cao chất lượng hình ảnh lên 4K bằng AI"
                 },
                 category: "tools",
                 guide: {
-                        en: '   {pn} [url]: Upscale image via URL' +
-                                '\n   {pn} [reply]: Reply to an image to upscale',
+                        en: '   {pn} [رابط]: ترقية جودة الصورة عبر الرابط' +
+                                '\n   {pn} [رد]: قم بالرد على صورة لترقية جودتها',
                         vi: '   {pn} [url]: Nâng cấp ảnh qua URL' +
                                 '\n   {pn} [reply]: Phản hồi ảnh để nâng cấp'
                 }
@@ -28,13 +28,13 @@ module.exports = {
 
         langs: {
                 en: {
-                        noImage: "• Baby, please reply to an image or provide a link.",
+                        noImage: "• عزيزي، يرجى الرد على صورة أو توفير رابط لها.",
                         success: "✅ | 𝐇𝐞𝐫𝐞'𝐬 𝐲𝐨𝐮𝐫 𝟒𝐤 𝐢𝐦𝐚𝐠𝐞 𝐛𝐚𝐛𝐲",
-                        error: "× API error: %1. Contact MahMUD for help.\n•WhatsApp: 01836298139"
+                        error: "× خطأ في الـ API: %1. تواصل مع MahMUD للحصول على المساعدة.\n•واتساب: 01836298139"
                 },
                 vi: {
                         noImage: "• Cưng ơi, hãy phản hồi một bức ảnh hoặc gửi link.",
-                        success: "✅ | 𝐇𝐞𝐫𝐞'𝐬 𝐲𝐨𝐮'𝐫 𝟒𝐤 𝐢𝐦𝐚𝐠𝐞 𝐛𝐚𝐛𝐲",
+                        success: "✅ | 𝐇𝐞𝐫𝐞'𝐬 𝐲ou'r 𝟒𝐤 𝐢𝐦𝐚𝐠𝐞 𝐛𝐚𝐛𝐲",
                         error: "× Lỗi: %1. Liên hệ MahMUD để được hỗ trợ.\n•WhatsApp: 01836298139"
                 }
         },
