@@ -9,18 +9,18 @@ module.exports = {
                 countDown: 5,
                 role: 0,
                 shortDescription: {
-                        en: "View command usage and list all commands",
+                        en: "عرض طريقة استخدام الأوامر وقائمة جميع الأوامر المتاحة",
                         bn: "কমান্ড ব্যবহারের নিয়ম এবং তালিকা দেখুন",
                         vi: "Xem cách sử dụng và danh sách lệnh"
                 },
                 longDescription: {
-                        en: "View command usage and list all commands directly",
+                        en: "عرض طريقة استخدام الأوامر وقائمة جميع الأوامر مباشرة",
                         bn: "কমান্ড ব্যবহারের নিয়ম এবং তালিকা দেখুন",
                         vi: "Xem cách sử dụng và danh sách lệnh"
                 },
                 category: "info",
                 guide: {
-                        en: "{pn} [command name]",
+                        en: "{pn} [اسم الأمر]",
                         bn: "{pn} [কমান্ডের নাম]",
                         vi: "{pn} [tên lệnh]"
                 },
@@ -60,10 +60,10 @@ module.exports = {
                         const totalCommands = commands.size;
                         let helpHint = langCode === "bn" ? `বিস্তারিত দেখতে ${prefix}help <কমান্ড> লিখুন।` : 
                                        langCode === "vi" ? `Nhập ${prefix}help <lệnh> để xem chi tiết.` : 
-                                       `Type ${prefix}help <cmd> to see details.`;
+                                       `اكتب ${prefix}help <اسم_الأمر> لعرض التفاصيل.`;
 
-                        msg += `\n\n⭔ Total Commands: ${totalCommands}\n⭔ ${helpHint}\n`;
-                        msg += `\n╭─✦ ADMIN: MahMUD 彡\n├‣ WHATSAPP\n╰‣ 01836298139`;
+                        msg += `\n\n⭔ إجمالي الأوامر: ${totalCommands}\n⭔ ${helpHint}\n`;
+                        msg += `\n╭─✦ المسؤول: MahMUD 彡\n├‣ واتساب\n╰‣ 01836298139`;
 
                         try {
                                 const hh = await message.reply({ body: msg });
@@ -79,7 +79,7 @@ module.exports = {
                         if (!command) {
                                 const notFound = langCode === "bn" ? `❌ | বেবি, "${commandName}" নামে কোনো কমান্ড নেই!` : 
                                                  langCode === "vi" ? `❌ | Không tìm thấy lệnh "${commandName}".` : 
-                                                 `❌ | Command "${commandName}" not found.`;
+                                                 `❌ | الأمر "${commandName}" غير موجود!`;
                                 return message.reply(notFound);
                         }
 
@@ -89,11 +89,11 @@ module.exports = {
                         const labels = {
                                 bn: { name: "নাম", alias: "ডাকনাম", info: "তথ্য", desc: "বর্ণনা", author: "লেখক", guide: "নির্দেশনা", usage: "ভার্সন ও পারমিশন", ver: "ভার্সন", role: "অনুমতি", none: "নেই", unknown: "অজানা" },
                                 vi: { name: "Tên", alias: "Tên khác", info: "Thông tin", desc: "Mô tả", author: "Tác giả", guide: "Hướng dẫn", usage: "Phiên bản & Quyền", ver: "Phiên bản", role: "Quyền hạn", none: "Không có", unknown: "Không xác định" },
-                                en: { name: "NAME", alias: "Aliases", info: "INFO", desc: "Description", author: "Author", guide: "Guide", usage: "Details", ver: "Version", role: "Role", none: "None", unknown: "Unknown" }
+                                en: { name: "الاسم", alias: "الأسماء المستعارة", info: "معلومات", desc: "الوصف", author: "المؤلف", guide: "طريقة الاستخدام", usage: "تفاصيل إضافية", ver: "الإصدار", role: "الصلاحية", none: "لا يوجد", unknown: "غير معروف" }
                         };
 
                         const lb = labels[langCode] || labels.en;
-                        const desc = config.description?.[langCode] || config.description?.en || config.longDescription?.[langCode] || config.longDescription?.en || "No description";
+                        const desc = config.description?.[langCode] || config.description?.en || config.longDescription?.[langCode] || config.longDescription?.en || "لا يوجد وصف متوفر";
                         const guideBody = config.guide?.[langCode] || config.guide?.en || "";
                         
                         const usage = guideBody
@@ -117,12 +117,13 @@ module.exports = {
                         setTimeout(() => message.unsend(helpMessage.messageID), 80000);
                 }
         }
+        
 };
 
 function roleTextToString(role, lang) {
         const roles = {
-                bn: ["সব ইউজার", "গ্রুপ অ্যাডমিন", "বোট অ্যাডমিন", "ডেভেলপার (Dev)", "ভিআইপি (VIP)", "NSFW ইউজার"],
-                en: ["All users", "Group Admin", "Bot Admin", "Developer", "VIP User", "NSFW User"],
+                bn: ["সব ইউজার", "গ্রুপ অ্যাডমিন", "বোট অ্যাডমিন", "ডেভেলপার (Dev)", "ভিআইپی (VIP)", "NSFW ইউজার"],
+                en: ["جميع المستخدمين", "مشرف المجموعة", "مسؤول البوت", "المطور", "مستخدم VIP", "مستخدم NSFW"],
                 vi: ["Tất cả người dùng", "Quản trị viên nhóm", "Admin bot", "Người phát triển", "Người dùng VIP", "Người dùng NSFW"]
         };
 
@@ -130,5 +131,5 @@ function roleTextToString(role, lang) {
         if (role >= 0 && role <= 5) {
                 return `${role} (${r[role]})`;
         }
-        return `${role} (Unknown)`;
+        return `${role} (غير معروف)`;
 }
